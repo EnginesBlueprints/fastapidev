@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-04-12T15:11:30+10:00"
+    "timestamp": "2019-04-12T15:18:19+10:00"
   },
   "software": {
     "base": {
@@ -36,7 +36,7 @@
         "publisher_namespace": "EnginesSystem",
         "type_path": "filesystem/local/filesystem",
         "variables": {
-          "service_name": "_Engines_Builder(engine_name)",
+          "service_name": "code",
           "volume_src": "",
           "engine_path": "/home/app/code",
           "permissions": "rw",
