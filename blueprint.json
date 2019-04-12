@@ -15,12 +15,42 @@
         "level": "alpha",
         "patch": 0
       }
-    }
+    },
+    "timestamp": "2019-04-12T15:11:30+10:00"
   },
   "software": {
     "base": {
+      "name": "fastapidev",
+      "inherit": "https://raw.githubusercontent.com/EnginesBlueprints/fastapi_base/master/blueprint.json",
+      "framework": "python3.7",
       "deployment_type": "web",
       "http_protocol": "https_and_http"
-    }
+    },
+    "scripts": {
+      "start": {
+        "content": "#!/bin/sh\r\n\r\nPATH=$PATH:/home/app/.local/bin/\r\nexport PATH\r\n. /home/app/venv/bin/activate\r\ncd /home/app/code\r\n\r\nuvicorn --port 8000 --host 0.0.0.0 main:app \r\n"
+      }
+    },
+    "service_configurations": [
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "filesystem/local/filesystem",
+        "variables": {
+          "service_name": "_Engines_Builder(engine_name)",
+          "volume_src": "",
+          "engine_path": "/home/app/code",
+          "permissions": "rw",
+          "user": "_Engines_Builder(data_uid)",
+          "group": "_Engines_Builder(data_gid)"
+        }
+      }
+    ],
+    "template_files": [
+      {
+        "path": "/home/app/code/main.py",
+        "language": "python",
+        "content": "from fastapi import FastAPI\r\n\r\napp = FastAPI()\r\n\r\n\r\n@app.get(\"/\")\r\nasync def root():\r\n    return {\"message\": \"Hello World\"}"
+      }
+    ]
   }
 }
