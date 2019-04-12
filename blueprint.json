@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-04-12T15:43:32+10:00"
+    "timestamp": "2019-04-12T16:57:54+10:00"
   },
   "software": {
     "base": {
@@ -28,7 +28,7 @@
     },
     "scripts": {
       "start": {
-        "content": "#!/bin/sh\r\n\r\nPATH=$PATH:/home/app/.local/bin/\r\nexport PATH\r\n. /home/app/venv/bin/activate\r\ncd /home/app/code\r\n\r\nuvicorn --port 8000 --host 0.0.0.0 main:app \r\n"
+        "content": "#!/bin/sh\r\n\r\nPATH=$PATH:/home/home_dir/.local/bin/\r\nexport PATH\r\n. /home/app/venv/bin/activate\r\ncd /home/app/code\r\n\r\nuvicorn --port 8000 --host 0.0.0.0 main:app "
       }
     },
     "service_configurations": [
