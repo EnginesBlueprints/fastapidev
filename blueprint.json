@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-04-12T15:18:19+10:00"
+    "timestamp": "2019-04-12T15:43:32+10:00"
   },
   "software": {
     "base": {
@@ -38,7 +38,7 @@
         "variables": {
           "service_name": "code",
           "volume_src": "",
-          "engine_path": "/home/app/code",
+          "engine_path": "",
           "permissions": "rw",
           "user": "_Engines_Builder(data_uid)",
           "group": "_Engines_Builder(data_gid)"
@@ -50,6 +50,12 @@
         "path": "/home/app/code/main.py",
         "language": "python",
         "content": "from fastapi import FastAPI\r\n\r\napp = FastAPI()\r\n\r\n\r\n@app.get(\"/\")\r\nasync def root():\r\n    return {\"message\": \"Hello World\"}"
+      }
+    ],
+    "persistent_directories": [
+      {
+        "path": "/home/app/code",
+        "volume_name": "code"
       }
     ]
   }
